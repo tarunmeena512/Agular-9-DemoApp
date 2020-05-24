@@ -1,7 +1,11 @@
-<h2>User Dashboard</h2>
-<div class="">
-  <h3>Total Count = {{dataSource.data.length}} </h3>
+<h2>Employee Dashboard</h2>
+<div>
+  <h3 style="float: left;margin-left: 20px;">Total Count = {{dataSource.data.length}} </h3>
+  <div class="right">
+    
+    <button mat-raised-button color="primary" (click)="openDialog('Add','Add')">Add</button></div>
   <table mat-table [dataSource]="dataSource">
+    
     <!-- Position Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> id </th>
@@ -9,15 +13,20 @@
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="userId">
-      <th mat-header-cell *matHeaderCellDef> userId </th>
-      <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+    <ng-container matColumnDef="employee_name">
+      <th mat-header-cell *matHeaderCellDef> employee_name </th>
+      <td mat-cell *matCellDef="let element"> {{element.employee_name}} </td>
     </ng-container>
 
     <!-- Weight Column -->
-    <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef> title </th>
-      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    <ng-container matColumnDef="employee_salary">
+      <th mat-header-cell *matHeaderCellDef> employee_salary </th>
+      <td mat-cell *matCellDef="let element"> {{element.employee_salary}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="employee_age">
+      <th mat-header-cell *matHeaderCellDef> employee_age </th>
+      <td mat-cell *matCellDef="let element"> {{element.employee_age}} </td>
     </ng-container>
 
     <!-- Symbol Column -->
@@ -30,7 +39,7 @@
      <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let element"> 
-       <mat-icon  (click)="openDialog('Edit',element)">edit</mat-icon>
+        <mat-icon  (click)="openDialog('Edit',element)">edit</mat-icon>
         <mat-icon  (click)="openDialog('Delete',element)">delete</mat-icon>
         <!-- <button class="mrgin" mat-raised-button color="primary" 
         (click)="openDialog('Edit',element)">Edit</button>

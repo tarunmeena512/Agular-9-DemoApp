@@ -10,7 +10,7 @@ export class ApiCallerServiceService {
   url:any = environment.getUrl;
   constructor(private httpClient: HttpClient) { }
  
-  get() {
+  get(): Observable<Object> {
     return this.httpClient.get(this.url)
       .pipe(
         tap( 
