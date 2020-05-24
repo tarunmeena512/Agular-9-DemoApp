@@ -1,0 +1,52 @@
+<h2>User Dashboard</h2>
+<div class="">
+  <h3>Total Count = {{dataSource.data.length}} </h3>
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="userId">
+      <th mat-header-cell *matHeaderCellDef> userId </th>
+      <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> title </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <!-- <ng-container matColumnDef="body">
+      <th mat-header-cell *matHeaderCellDef> body </th>
+      <td style="word-wrap:break-word" mat-cell *matCellDef="let element"> {{element.body}} </td>
+    </ng-container> -->
+
+     <!-- Get Details -->
+     <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> 
+       <mat-icon  (click)="openDialog('Edit',element)">edit</mat-icon>
+        <mat-icon  (click)="openDialog('Delete',element)">delete</mat-icon>
+        <!-- <button class="mrgin" mat-raised-button color="primary" 
+        (click)="openDialog('Edit',element)">Edit</button>
+        <button mat-raised-button color="primary" 
+        (click)="openDialog('Delete',element)">Delete</button> 
+       --></td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
