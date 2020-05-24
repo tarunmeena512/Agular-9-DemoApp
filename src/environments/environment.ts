@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  getUrl: "http://dummy.restapiexample.com/api/v1/employees"
+  getUrl: "https://testapi.free.beeceptor.com/getAll"
 };
 
 /*

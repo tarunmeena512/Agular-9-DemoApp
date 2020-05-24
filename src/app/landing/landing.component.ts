@@ -12,15 +12,16 @@ import {ApiCallerServiceService } from '../api-caller-service.service';
 
 export class LandingComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'employee_name', 'employee_salary','employee_age','action'];
+  displayedColumns: string[] = ['id', 'name', 'class_name','type','action'];
   dataSource :any = new MatTableDataSource();
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(private apicallerService:ApiCallerServiceService) { }
+  constructor(
+   private apicallerService:ApiCallerServiceService) { }
   ngOnInit() {
     this.apicallerService.get().subscribe((response : any)=>{
-    this.dataSource.data = response.data;
+    this.dataSource.data = response;
     this.dataSource.paginator = this.paginator;
     })
   }
@@ -36,15 +37,19 @@ export class LandingComponent implements OnInit {
   }
   }
   delete(obj) {
+    alert('In Progress');
+  }
+  
+  add(obj) {
     alert('In Progress')
   }
-  add(obj) {
-   alert('In Progress')
-  }
+
+
   edit(obj) {
     alert('In Progress')
   }
 
+ 
 
 }
 

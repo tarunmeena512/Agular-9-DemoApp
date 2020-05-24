@@ -8,11 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { spinnerInterceptor } from './spinner-interceptor';
 
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 @NgModule({
+  
   declarations: [
     AppComponent,
     LandingComponent
+ 
   ],
   imports: [
     BrowserModule,
@@ -21,6 +24,7 @@ import { spinnerInterceptor } from './spinner-interceptor';
     BrowserAnimationsModule,
     HttpClientModule
   ],
+  
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: spinnerInterceptor,
@@ -29,3 +33,6 @@ import { spinnerInterceptor } from './spinner-interceptor';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));

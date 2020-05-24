@@ -8,6 +8,7 @@ import {environment} from '../environments/environment';
 })
 export class ApiCallerServiceService {
   url:any = environment.getUrl;
+ 
   constructor(private httpClient: HttpClient) { }
  
   get(): Observable<Object> {
@@ -20,7 +21,7 @@ export class ApiCallerServiceService {
       );
   }
   delete(obj) {
-    return this.httpClient.delete(this.url +'/'+ obj.id)
+    return this.httpClient.delete(this.url)
       .pipe(
         tap( 
           data => console.log(data),
