@@ -1,11 +1,20 @@
-<h2 mat-dialog-title>{{title}}</h2>
+<div *ngIf="delete" [ngStyle]="isDelete === false? {'display': 'none'}: {'display':'block'}">
+    <h2 mat-dialog-title>{{title}}</h2>
 
 <mat-dialog-content>
 
 <p> Id-{{content.id}} <br> First Name-{{content.first_name}}<br>Last Name-{{content.last_name}}<br>Email-{{content.email}}</p>
+
 </mat-dialog-content>
 
 <mat-dialog-actions>
     <button class="mat-raised-button" (click)="close()">Cancel</button>
     <button class="mat-raised-button" (click)="delete()">Delete</button>
 </mat-dialog-actions>
+</div>
+
+
+<!-- add -->
+<div *ngIf="isAdd">  
+    <app-form></app-form>
+</div>

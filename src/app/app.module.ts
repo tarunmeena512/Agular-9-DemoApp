@@ -10,13 +10,17 @@ import { spinnerInterceptor } from './spinner-interceptor';
 
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormComponent } from './form/form.component';
 @NgModule({
   
   declarations: [
     AppComponent,
     LandingComponent,
-    DialogOverviewExampleDialogComponent
+    DialogOverviewExampleDialogComponent,
+    FormComponent
  
   ],
   entryComponents:[DialogOverviewExampleDialogComponent],
@@ -25,6 +29,10 @@ import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-
     AppRoutingModule,
     DemoMaterialModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
     HttpClientModule
   ],
   

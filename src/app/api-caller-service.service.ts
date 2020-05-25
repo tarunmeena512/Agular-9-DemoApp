@@ -29,4 +29,13 @@ export class ApiCallerServiceService {
         )
       );
   }
+  post(payload){
+    return this.httpClient.post(this.url,payload)
+    .pipe(
+      tap( 
+        data => console.log(data),
+        error =>  console.log(error)
+      )
+    );
+  }
 }

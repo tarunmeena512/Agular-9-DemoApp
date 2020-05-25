@@ -10,11 +10,16 @@ export class DialogOverviewExampleDialogComponent implements OnInit {
   action:any;
   title:any;
   content:any;
+  isDelete:boolean=false;
+  isAdd:boolean=false;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,public dialogRef: MatDialogRef<DialogOverviewExampleDialogComponent>) {
   this.action = data.action;
   this.title = data.title;
   this.content = data.content;
+  this.isDelete=data.delete;
+  this.isAdd = data.add;
+
    }
 
   ngOnInit(): void {

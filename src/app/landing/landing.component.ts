@@ -33,13 +33,14 @@ export class LandingComponent implements OnInit {
    // this.delete(obj);
    const dialogRef = this.matDialog.open(DialogOverviewExampleDialogComponent, {
     width: '250px',
-    data: {action:action,"title":"Do you want to delete ?","content":obj}
+    data: {action:action,"title":"Do you want to delete ?","add":false,"delete":true,"content":obj}
   });
 
   dialogRef.afterClosed().subscribe(result => {
   if(result.action==="doDelete"){
    this.delete(result);
   }
+
   });
 
   }
@@ -47,7 +48,11 @@ export class LandingComponent implements OnInit {
     this.edit(obj);
   }
   if(action==='Add'){
-    this.add(obj);
+    const dialogRef = this.matDialog.open(DialogOverviewExampleDialogComponent, {
+      width: '250px',
+      data: {action:action,"title":"Add Employee","add":true,"delete":false,"content":obj}
+    });
+    //this.add(obj);
   }
   }
   delete(obj) {
