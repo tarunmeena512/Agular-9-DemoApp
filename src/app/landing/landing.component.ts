@@ -2,7 +2,8 @@ import { Component, OnInit,ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {ApiCallerServiceService } from '../api-caller-service.service';
-
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {DialogOverviewExampleDialogComponent } from '../dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 
 @Component({
   selector: 'app-landing',
@@ -12,12 +13,13 @@ import {ApiCallerServiceService } from '../api-caller-service.service';
 
 export class LandingComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'class_name','type','action'];
+  displayedColumns: string[] = ['id', 'name','price','quantity','action'];
   dataSource :any = new MatTableDataSource();
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(
+   private matDialog:MatDialog,
    private apicallerService:ApiCallerServiceService) { }
   ngOnInit() {
     this.apicallerService.get().subscribe((response : any)=>{
@@ -27,7 +29,19 @@ export class LandingComponent implements OnInit {
   }
   openDialog(action,obj) {
   if(action==='Delete'){
-    this.delete(obj);
+
+   // this.delete(obj);
+   const dialogRef = this.matDialog.open(DialogOverviewExampleDialogComponent, {
+    width: '250px',
+    data: {action:action,"title":"Do you want to delete ?","content":obj}
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+  if(result.action==="doDelete"){
+   this.delete(result);
+  }
+  });
+
   }
   if(action==='Edit'){
     this.edit(obj);
@@ -37,13 +51,21 @@ export class LandingComponent implements OnInit {
   }
   }
   delete(obj) {
-    alert('In Progress');
+    this.apicallerService.delete(obj).subscribe((response : any)=>{
+     console.log(response);
+     this.apicallerService.get().subscribe(data=>{
+      this.dataSource.data = data;
+      this.dataSource.paginator = this.paginator;
+     })
+      })
   }
   
   add(obj) {
     alert('In Progress')
   }
-
+  trackById(index:number, el:any): number {
+    return el.id;
+  }
 
   edit(obj) {
     alert('In Progress')

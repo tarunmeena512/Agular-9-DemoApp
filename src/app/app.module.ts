@@ -9,14 +9,17 @@ import { HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { spinnerInterceptor } from './spinner-interceptor';
 
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 
 @NgModule({
   
   declarations: [
     AppComponent,
-    LandingComponent
+    LandingComponent,
+    DialogOverviewExampleDialogComponent
  
   ],
+  entryComponents:[DialogOverviewExampleDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

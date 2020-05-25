@@ -4,48 +4,41 @@
   <div class="right">
     
     <button mat-raised-button color="primary" (click)="openDialog('Add','Add')">Add</button></div>
-  <table mat-table [dataSource]="dataSource">
+  <table mat-table [dataSource]="dataSource" [trackBy]="trackById">
     
-    <!-- Position Column -->
+  
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> id </th>
       <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
 
-    <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> name </th>
       <td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="class_name">
-      <th mat-header-cell *matHeaderCellDef> class_name </th>
-      <td mat-cell *matCellDef="let element"> {{element.class_name}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="type">
-      <th mat-header-cell *matHeaderCellDef> type </th>
-      <td mat-cell *matCellDef="let element"> {{element.type}} </td>
-    </ng-container>
-
-    <!-- Symbol Column -->
-    <!-- <ng-container matColumnDef="body">
-      <th mat-header-cell *matHeaderCellDef> body </th>
-      <td style="word-wrap:break-word" mat-cell *matCellDef="let element"> {{element.body}} </td>
+   
+    <!-- <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
     </ng-container> -->
 
-     <!-- Get Details -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> price </th>
+      <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef> quantity </th>
+      <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+    </ng-container>
+  
      <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let element"> 
         <mat-icon  (click)="openDialog('Edit',element)">edit</mat-icon>
         <mat-icon  (click)="openDialog('Delete',element)">delete</mat-icon>
-        <!-- <button class="mrgin" mat-raised-button color="primary" 
-        (click)="openDialog('Edit',element)">Edit</button>
-        <button mat-raised-button color="primary" 
-        (click)="openDialog('Delete',element)">Delete</button> 
-       --></td>
+       </td>
     </ng-container>
     
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -55,7 +48,3 @@
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>
 
-
-<!-- Copyright 2019 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license -->

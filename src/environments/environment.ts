@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  getUrl: "https://testapi.free.beeceptor.com/getAll"
+  getUrl: "http://localhost:3000/products"
 };
 
 /*
