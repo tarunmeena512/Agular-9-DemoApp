@@ -13,7 +13,7 @@ import {DialogOverviewExampleDialogComponent } from '../dialog-overview-example-
 
 export class LandingComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name','price','quantity','action'];
+  displayedColumns: string[] = ['id', 'first_name','last_name','email','action'];
   dataSource :any = new MatTableDataSource();
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -23,7 +23,7 @@ export class LandingComponent implements OnInit {
    private apicallerService:ApiCallerServiceService) { }
   ngOnInit() {
     this.apicallerService.get().subscribe((response : any)=>{
-    this.dataSource.data = response.products;
+    this.dataSource.data = response;
     this.dataSource.paginator = this.paginator;
     })
   }
@@ -52,16 +52,13 @@ export class LandingComponent implements OnInit {
   }
   delete(obj) {
     this.apicallerService.delete(obj).subscribe((data : any)=>{
+      this.apicallerService.get().subscribe((data : any)=>{
+      
+        this.dataSource.data = data;
+        this.dataSource.paginator = this.paginator;
      
-    
-      data["products"].forEach(element => {
-        if(element.id===obj.id){
-          data["products"].pop(element);
-        }
-      });
-     
-      this.dataSource.data = data["products"];
-      this.dataSource.paginator = this.paginator;
+      })
+   
      
       })
   }

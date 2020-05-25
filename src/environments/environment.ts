@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  getUrl: "assets/data.json"
+  getUrl: "https://agular-9-demoapp-api.herokuapp.com/employees"
   
 };
 
