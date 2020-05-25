@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  getUrl: "http://localhost:3000/products"
+  getUrl: "assets/data.json"
+  
 };
 
 /*

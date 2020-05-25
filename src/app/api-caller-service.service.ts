@@ -21,7 +21,7 @@ export class ApiCallerServiceService {
       );
   }
   delete(obj) {
-    return this.httpClient.delete(this.url +'/'+ obj.id)
+    return this.httpClient.get(this.url)
       .pipe(
         tap( 
           data => console.log(data),

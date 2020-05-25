@@ -23,7 +23,7 @@ export class LandingComponent implements OnInit {
    private apicallerService:ApiCallerServiceService) { }
   ngOnInit() {
     this.apicallerService.get().subscribe((response : any)=>{
-    this.dataSource.data = response;
+    this.dataSource.data = response.products;
     this.dataSource.paginator = this.paginator;
     })
   }
@@ -51,12 +51,18 @@ export class LandingComponent implements OnInit {
   }
   }
   delete(obj) {
-    this.apicallerService.delete(obj).subscribe((response : any)=>{
-     console.log(response);
-     this.apicallerService.get().subscribe(data=>{
-      this.dataSource.data = data;
+    this.apicallerService.delete(obj).subscribe((data : any)=>{
+     
+    
+      data["products"].forEach(element => {
+        if(element.id===obj.id){
+          data["products"].pop(element);
+        }
+      });
+     
+      this.dataSource.data = data["products"];
       this.dataSource.paginator = this.paginator;
-     })
+     
       })
   }
   
