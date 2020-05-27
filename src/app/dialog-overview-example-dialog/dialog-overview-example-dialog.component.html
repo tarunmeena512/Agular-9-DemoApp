@@ -16,5 +16,28 @@
 
 <!-- add -->
 <div *ngIf="isAdd">  
-    <app-form></app-form>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  
+        <label>
+          id:
+          <input type="text" formControlName="id">
+        </label>
+      
+        <label>
+            first_name:
+          <input type="text" formControlName="first_name">
+        </label>
+    
+        <label>
+            last_name:
+            <input type="text" formControlName="last_name">
+          </label>
+        
+          <label>
+            email:
+            <input type="text" formControlName="email">
+          </label>
+          <button class="mat-raised-button" (click)="close()">Cancel</button>
+          <button class="mat-raised-button"  (click)="Save()">Submit</button>
+      </form>
 </div>

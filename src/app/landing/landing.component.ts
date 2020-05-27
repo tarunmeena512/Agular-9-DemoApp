@@ -26,6 +26,11 @@ export class LandingComponent implements OnInit {
     this.dataSource.data = response;
     this.dataSource.paginator = this.paginator;
     })
+    this.apicallerService.sub$.subscribe(data=>{
+      if(data===1){}else{
+      this.dataSource.data = data;
+      this.dataSource.paginator = this.paginator;}
+    })
   }
   openDialog(action,obj) {
   if(action==='Delete'){

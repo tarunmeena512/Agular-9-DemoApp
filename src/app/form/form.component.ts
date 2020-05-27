@@ -22,14 +22,14 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit() {
+   
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
     this.apicallerService.post(this.profileForm.value).subscribe((data:any)=>{
     console.log(data);
     
     this.apicallerService.get().subscribe((data:any)=>{
-      console.log(data);
-      this.dialogRef.close(data);
+     this.apicallerService.sendData(data);
     })
     });
   }

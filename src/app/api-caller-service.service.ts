@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, BehaviorSubject,of } from 'rxjs';
 import { tap, map, filter, retry, catchError } from 'rxjs/operators';
 import {environment} from '../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiCallerServiceService {
   url:any = environment.getUrl;
- 
+
+ public sub$= new BehaviorSubject(1);
+
   constructor(private httpClient: HttpClient) { }
  
   get(): Observable<Object> {
@@ -37,5 +40,8 @@ export class ApiCallerServiceService {
         error =>  console.log(error)
       )
     );
+  }
+  sendData(data){
+this.sub$.next(data);
   }
 }
