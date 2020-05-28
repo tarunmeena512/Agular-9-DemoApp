@@ -62,13 +62,15 @@ this.example.email = this.content.email;
       })
     }else{
  // TODO: Use EventEmitter with form value
- console.warn(this.profileForm.value);
+
  this.dialogRef.close("Thanks for using me!");
+
  this.apicallerService.post(this.profileForm.value).subscribe((data:any)=>{
  console.log(data);
  
  this.apicallerService.get().subscribe((data:any)=>{
-  //this.dialogRef.close("Thanks for using me!");
+
+ 
   this.apicallerService.sendData(data);
  })
  });
