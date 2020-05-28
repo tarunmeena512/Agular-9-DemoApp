@@ -8,8 +8,8 @@
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button class="mat-raised-button" (click)="close()">Cancel</button>
-    <button class="mat-raised-button" (click)="delete()">Delete</button>
+    <button style="margin-right:8px" button mat-raised-button color="warn"(click)="close()">Cancel</button>
+    <button button mat-raised-button color="primary" (click)="delete()">Delete</button>
 </mat-dialog-actions>
 </div>
 
@@ -21,6 +21,32 @@
 
 <mat-dialog-content>
   <form [formGroup]="profileForm">
+  <mat-form-field>
+    <input matInput
+            placeholder="id"
+            [(ngModel)]="example.id"
+           formControlName="id">
+</mat-form-field>
+<mat-form-field>
+  <input matInput
+          placeholder="first_name"
+          [(ngModel)]="example.first_name"
+         formControlName="first_name">
+</mat-form-field>
+<mat-form-field>
+  <input matInput
+          placeholder="last_name"
+          [(ngModel)]="example.last_name"
+         formControlName="last_name">
+</mat-form-field>
+<mat-form-field>
+  <input matInput
+          placeholder="email"
+          [(ngModel)]="example.email"
+         formControlName="email">
+</mat-form-field>
+</form>
+  <!-- <form [formGroup]="profileForm">
   
     <label>
       id:
@@ -42,13 +68,13 @@
         <input type="text" formControlName="email"  [(ngModel)]="example.email">
       </label>
      
-  </form>
+  </form> -->
 
 </mat-dialog-content>
 
-<mat-dialog-actions>
-  <button class="mat-raised-button" (click)="close()">Cancel</button>
-  <button class="mat-raised-button"  (click)="Save()">Submit</button>
+<mat-dialog-actions style="margin-right:8px">
+<button style="margin-right:8px" button mat-raised-button color="warn" (click)="close()">Cancel</button>
+  <button button mat-raised-button color="primary" (click)="Save()">Submit</button>
 </mat-dialog-actions>
 </div>
 

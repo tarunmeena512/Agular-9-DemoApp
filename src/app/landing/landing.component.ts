@@ -58,7 +58,7 @@ export class LandingComponent implements OnInit {
   if(action==='Add'){
     const dialogRef = this.matDialog.open(DialogOverviewExampleDialogComponent, {
       width: '250px',
-      data: {action:action,"title":"Edit Employee Details","content":obj}
+      data: {action:action,"title":"Add Employee Details","content":obj}
     });
     //this.add(obj);
   }
