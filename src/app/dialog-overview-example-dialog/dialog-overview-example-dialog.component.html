@@ -1,4 +1,4 @@
-<div *ngIf="delete" [ngStyle]="isDelete === false? {'display': 'none'}: {'display':'block'}">
+<div *ngIf="action==='Delete'" [ngStyle]="isDelete === false? {'display': 'none'}: {'display':'block'}">
     <h2 mat-dialog-title>{{title}}</h2>
 
 <mat-dialog-content>
@@ -15,29 +15,39 @@
 
 
 <!-- add -->
-<div *ngIf="isAdd">  
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<div *ngIf="action==='Add' || action==='Edit'">
+<h2 mat-dialog-title>{{title}}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="profileForm">
   
-        <label>
-          id:
-          <input type="text" formControlName="id">
-        </label>
-      
-        <label>
-            first_name:
-          <input type="text" formControlName="first_name">
-        </label>
+    <label>
+      id:
+      <input type="text" formControlName="id"  [(ngModel)]="example.id">
+    </label>
+  
+    <label>
+        first_name:
+      <input type="text" formControlName="first_name"  [(ngModel)]="example.first_name">
+    </label>
+
+    <label>
+        last_name:
+        <input type="text" formControlName="last_name"  [(ngModel)]="example.last_name">
+      </label>
     
-        <label>
-            last_name:
-            <input type="text" formControlName="last_name">
-          </label>
-        
-          <label>
-            email:
-            <input type="text" formControlName="email">
-          </label>
-          <button class="mat-raised-button" (click)="close()">Cancel</button>
-          <button class="mat-raised-button"  (click)="Save()">Submit</button>
-      </form>
+      <label>
+        email:
+        <input type="text" formControlName="email"  [(ngModel)]="example.email">
+      </label>
+     
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Cancel</button>
+  <button class="mat-raised-button"  (click)="Save()">Submit</button>
+</mat-dialog-actions>
 </div>
+

@@ -41,6 +41,15 @@ export class ApiCallerServiceService {
       )
     );
   }
+  edit(payload){
+    return this.httpClient.put(this.url+'/'+payload.id,payload)
+    .pipe(
+      tap( 
+        data => console.log(data),
+        error =>  console.log(error)
+      )
+    );
+  }
   sendData(data){
 this.sub$.next(data);
   }
