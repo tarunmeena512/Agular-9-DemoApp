@@ -37,7 +37,8 @@ export class LandingComponent implements OnInit {
 
    // this.delete(obj);
    const dialogRef = this.matDialog.open(DialogOverviewExampleDialogComponent, {
-    width: '250px',
+    width: '350px',
+    height: '250px',
     data: {action:action,"title":"Do you want to delete ?","content":obj}
   });
 
@@ -51,12 +52,14 @@ export class LandingComponent implements OnInit {
   }
   if(action==='Edit'){
     const dialogRef = this.matDialog.open(DialogOverviewExampleDialogComponent, {
+      height: '400px',
       width: '250px',
       data: {action:action,"title":"Edit Employee Details","content":obj}
     });
   }
   if(action==='Add'){
     const dialogRef = this.matDialog.open(DialogOverviewExampleDialogComponent, {
+      height: '400px',
       width: '250px',
       data: {action:action,"title":"Add Employee Details","content":obj}
     });

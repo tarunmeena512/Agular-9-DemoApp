@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef ,MAT_DIALOG_DATA} from "@angular/material/dialog";
 import { FormGroup, FormControl } from '@angular/forms';
 import {ApiCallerServiceService} from '../api-caller-service.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dialog-overview-example-dialog',
@@ -28,7 +29,9 @@ export class DialogOverviewExampleDialogComponent implements OnInit {
     email:new FormControl('')
   });
 
-  constructor(private apicallerService:ApiCallerServiceService,@Inject(MAT_DIALOG_DATA) public data: any,public dialogRef: MatDialogRef<DialogOverviewExampleDialogComponent>) {
+  constructor(
+    private _snackBar: MatSnackBar,
+    private apicallerService:ApiCallerServiceService,@Inject(MAT_DIALOG_DATA) public data: any,public dialogRef: MatDialogRef<DialogOverviewExampleDialogComponent>) {
   this.action = data.action;
   this.title = data.title;
   this.content = data.content;
@@ -59,6 +62,9 @@ this.example.email = this.content.email;
           //this.dialogRef.close("Thanks for using me!");
           this.apicallerService.sendData(data);
          })
+      },error=>{
+        console.log(error)
+        this._snackBar.open(error);
       })
     }else{
  // TODO: Use EventEmitter with form value
@@ -73,7 +79,12 @@ this.example.email = this.content.email;
  
   this.apicallerService.sendData(data);
  })
- });
+ },error=>{
+  console.log(error)
+  this._snackBar.open('Duplicate Id Found', 'Undo', {
+    duration: 3000}
+    );
+});
   }
 }
 }
