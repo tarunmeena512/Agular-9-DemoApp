@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef ,MAT_DIALOG_DATA} from "@angular/material/dialog";
 import { FormGroup, FormControl } from '@angular/forms';
 import {ApiCallerServiceService} from '../api-caller-service.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dialog-overview-example-dialog',
@@ -10,6 +10,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./dialog-overview-example-dialog.component.scss']
 })
 export class DialogOverviewExampleDialogComponent implements OnInit {
+  config = new MatSnackBarConfig();
   action:any;
   title:any;
   content:any;
@@ -60,11 +61,26 @@ this.example.email = this.content.email;
       this.apicallerService.edit(this.profileForm.value).subscribe((data:any)=>{
         this.apicallerService.get().subscribe((data:any)=>{
           //this.dialogRef.close("Thanks for using me!");
+          this.config.duration = 5000;
+          this.config.panelClass = ['green-snackbar']
+                this._snackBar.open('Success!', '', this.config) 
           this.apicallerService.sendData(data);
          })
       },error=>{
         console.log(error)
-        this._snackBar.open(error);
+        if(error && error.status===404){
+          this.config.duration = 5000;
+          this.config.panelClass = ['red-snackbar']
+                this._snackBar.open(error.statusText, 'Undo', this.config
+            );
+          return;
+        }
+        this.config.duration = 5000;
+  this.config.panelClass = ['red-snackbar']
+        this._snackBar.open(error.statusText, 'Undo', this.config
+          );
+      
+      
       })
     }else{
  // TODO: Use EventEmitter with form value
@@ -76,14 +92,17 @@ this.example.email = this.content.email;
  
  this.apicallerService.get().subscribe((data:any)=>{
 
- 
+  this.config.duration = 5000;
+  this.config.panelClass = ['green-snackbar']
+        this._snackBar.open('Success!', '', this.config) 
   this.apicallerService.sendData(data);
+
  })
  },error=>{
   console.log(error)
-  this._snackBar.open('Duplicate Id Found', 'Undo', {
-    duration: 3000}
-    );
+  this.config.duration = 5000;
+  this.config.panelClass = ['red-snackbar']
+  this._snackBar.open('Duplicate Id Found!', 'Undo',this.config)
 });
   }
 }

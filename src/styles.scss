@@ -3,3 +3,16 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.red-snackbar{
+    background-color: red !important;
+    color: white;
+}
+
+.mat-simple-snackbar-action button {
+    color: white;
+    background: blue;
+}
+
+.green-snackbar{
+    background-color:green !important;
+}
