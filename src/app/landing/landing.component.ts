@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {ApiCallerServiceService } from '../api-caller-service.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {DialogOverviewExampleDialogComponent } from '../dialog-overview-example-dialog/dialog-overview-example-dialog.component';
+import { MatSnackBarConfig, MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-landing',
@@ -12,7 +13,7 @@ import {DialogOverviewExampleDialogComponent } from '../dialog-overview-example-
 })
 
 export class LandingComponent implements OnInit {
-
+  config = new MatSnackBarConfig();
   displayedColumns: string[] = ['id', 'first_name','last_name','email','action'];
   dataSource :any = new MatTableDataSource();
 
@@ -20,6 +21,7 @@ export class LandingComponent implements OnInit {
 
   constructor(
    private matDialog:MatDialog,
+   private _snackBar: MatSnackBar,
    private apicallerService:ApiCallerServiceService) { }
   ngOnInit() {
     this.apicallerService.get().subscribe((response : any)=>{
@@ -69,7 +71,9 @@ export class LandingComponent implements OnInit {
   delete(obj) {
     this.apicallerService.delete(obj).subscribe((data : any)=>{
       this.apicallerService.get().subscribe((data : any)=>{
-      
+        this.config.duration = 5000;
+          this.config.panelClass = ['green-snackbar']
+                this._snackBar.open('Success!', '', this.config) 
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
      
