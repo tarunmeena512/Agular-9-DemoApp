@@ -76,9 +76,11 @@ export class LandingComponent implements OnInit {
   delete(obj) {
     this.apicallerService.delete(obj).subscribe((data : any)=>{
       this.apicallerService.get().subscribe((data : any)=>{
+
         this.config.duration = 5000;
           this.config.panelClass = ['green-snackbar']
                 this._snackBar.open('Success!', '', this.config) 
+                
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
      

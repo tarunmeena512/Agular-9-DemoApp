@@ -14,13 +14,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormComponent } from './form/form.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   
   declarations: [
     AppComponent,
     LandingComponent,
     DialogOverviewExampleDialogComponent,
-    FormComponent
+    FormComponent,
+    LoginComponent
  
   ],
   entryComponents:[DialogOverviewExampleDialogComponent],
