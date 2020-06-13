@@ -18,12 +18,12 @@
           </ng-container>
       
           <ng-container matColumnDef="first_name">
-            <th mat-header-cell *matHeaderCellDef  mat-sort-header> first_name </th>
+            <th mat-header-cell *matHeaderCellDef  mat-sort-header> fName </th>
             <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
           </ng-container>
       
           <ng-container matColumnDef="last_name">
-            <th mat-header-cell *matHeaderCellDef  mat-sort-header> last_name </th>
+            <th mat-header-cell *matHeaderCellDef  mat-sort-header> lName </th>
             <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
           </ng-container>
       
@@ -39,11 +39,11 @@
               <mat-icon  (click)="openDialog('Delete',element)">delete</mat-icon>
              </td>
           </ng-container>
-
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumns,sticky: true"></tr>
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsss"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <div *ngIf="dataSource.data.length===0">No records found</div>
         </table>
+        <div class="txt-center" *ngIf="dataSource.data.length===0">No records found</div>
         <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
       </div>
     </div>
