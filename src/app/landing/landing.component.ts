@@ -5,7 +5,7 @@ import {ApiCallerServiceService } from '../api-caller-service.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {DialogOverviewExampleDialogComponent } from '../dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 import { MatSnackBarConfig, MatSnackBar } from '@angular/material/snack-bar';
-
+import {MatSort} from '@angular/material/sort';
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -16,7 +16,7 @@ export class LandingComponent implements OnInit {
   config = new MatSnackBarConfig();
   displayedColumns: string[] = ['id', 'first_name','last_name','email','action'];
   dataSource :any = new MatTableDataSource();
-
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(
@@ -27,12 +27,17 @@ export class LandingComponent implements OnInit {
     this.apicallerService.get().subscribe((response : any)=>{
     this.dataSource.data = response;
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
     })
     this.apicallerService.sub$.subscribe(data=>{
       if(data===1){}else{
       this.dataSource.data = data;
       this.dataSource.paginator = this.paginator;}
     })
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   openDialog(action,obj) {
   if(action==='Delete'){
