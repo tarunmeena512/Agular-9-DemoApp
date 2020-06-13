@@ -39,7 +39,7 @@
               <mat-icon  (click)="openDialog('Delete',element)">delete</mat-icon>
              </td>
           </ng-container>
-          <tr mat-header-row *matHeaderRowDef="displayedColumnsss"></tr>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           <div *ngIf="dataSource.data.length===0">No records found</div>
         </table>
