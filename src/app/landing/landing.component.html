@@ -10,7 +10,7 @@
       </mat-form-field>
       <div class="example-container mat-elevation-z8">
       
-        <table mat-table [dataSource]="dataSource" matSort >
+        <table @slideInOut mat-table [dataSource]="dataSource" matSort >
       
           <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef  mat-sort-header> id </th>
@@ -40,7 +40,7 @@
              </td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr  mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           <div *ngIf="dataSource.data.length===0">No records found</div>
         </table>
         <div class="txt-center" *ngIf="dataSource.data.length===0">No records found</div>

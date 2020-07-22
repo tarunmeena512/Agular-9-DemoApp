@@ -2,12 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl,Validators,FormArray} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBarConfig, MatSnackBar } from '@angular/material/snack-bar';
+import { slideInOut } from '../animation';
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  animations:[
+    slideInOut
+  ]
 })
 export class LoginComponent implements OnInit {
   config = new MatSnackBarConfig();
