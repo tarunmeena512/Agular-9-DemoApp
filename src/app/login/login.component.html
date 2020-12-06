@@ -1,36 +1,20 @@
-
-<div class="container">
-    <div class="row">
-        <div 
-    
-        class="col-sm-12 col-md-12 col-lg-12 center-screen">
-            <mat-card >
-                <mat-card-header>
-                  <mat-card-title>User Login</mat-card-title>
-                </mat-card-header>
-                 <mat-card-content>
-                    <form 
-                    @slideInOut
-                    [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                        <mat-form-field 
-                        class="example-full-width">
-                            <mat-label>Username</mat-label>
-                            <input matInput type="text" formControlName="userName">
-                          </mat-form-field> 
-                          
-                          <mat-form-field 
-                       
-                          class="example-full-width">
-                            <mat-label>Password</mat-label>
-                            <input matInput type="password" formControlName="password">
-                          </mat-form-field> 
-                    <button type="submit"  class = "btnLogin" mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button>
-                    </form>
-                </mat-card-content>
-                <mat-card-actions>
-                
-                </mat-card-actions>
-              </mat-card>
-        </div>
-    </div>
-</div>
+<button mat-raised-button color="primary" style="float:right;padding:5px 15px;" (click)="add(title)">
+  <mat-icon>add</mat-icon>{{title}}
+</button>
+<mat-tab-group #tabGroup (focusChange)="tabChanged($event)" [selectedIndex]="0">
+  <mat-tab label="First">
+    <app-custom>
+      <div class="title"> title1</div>
+    </app-custom>
+  </mat-tab>
+  <mat-tab label="Second">
+    <app-custom>
+      <div class="title"> title2</div>
+    </app-custom>
+  </mat-tab>
+  <mat-tab label="Third">
+    <app-custom>
+      <div class="title"> title3</div>
+    </app-custom>
+  </mat-tab>
+</mat-tab-group>

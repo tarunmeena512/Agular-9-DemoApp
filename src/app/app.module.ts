@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormComponent } from './form/form.component';
 import { LoginComponent } from './login/login.component';
+import { CustomComponent } from './custom/custom.component';
 @NgModule({
   
   declarations: [
@@ -22,7 +23,8 @@ import { LoginComponent } from './login/login.component';
     LandingComponent,
     DialogOverviewExampleDialogComponent,
     FormComponent,
-    LoginComponent
+    LoginComponent,
+    CustomComponent
  
   ],
   entryComponents:[DialogOverviewExampleDialogComponent],
