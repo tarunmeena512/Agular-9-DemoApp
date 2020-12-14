@@ -41,6 +41,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 @NgModule({
   exports: [
@@ -85,13 +86,14 @@ import {MatTreeModule} from '@angular/material/tree';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
+    OverlayModule,
     PortalModule,
-    ScrollingModule
+    ScrollingModule,
   ]
 })
 export class DemoMaterialModule {}
 
 
-/**  Copyright 2019 Google LLC. All Rights Reserved.
+/**  Copyright 2020 Google LLC. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
     can be found in the LICENSE file at http://angular.io/license */

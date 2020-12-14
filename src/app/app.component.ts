@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { SpinnerService } from './spinner.service';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'myNewApp';
-  constructor(private router: Router,public spinnerService: SpinnerService) { }
-  ngOnInit(): void {
-    this.router.navigate(['/login']);
-  }
+export class AppComponent {
+  title = 'demoapp';
 }
