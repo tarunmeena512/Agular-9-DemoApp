@@ -23,10 +23,11 @@
       <span>demoapp</span>
     </mat-toolbar>
     <!-- Add Content Here -->
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-12">
           <button mat-button [matMenuTriggerFor]="animals">Animal index</button>
+          <button mat-button (click) = "openDialog()">open dialog</button>
 <mat-menu #animals="matMenu">
   <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates</button>
   <button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>

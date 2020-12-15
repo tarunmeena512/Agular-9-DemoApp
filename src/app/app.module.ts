@@ -15,14 +15,20 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { DemoMaterialModule } from './material-module';
+import { DialogComponent } from './dialog/dialog.component';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    TableComponent
+    TableComponent,
+    DialogComponent
   ],
+  entryComponents:[DialogComponent],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
     DemoMaterialModule,
     AppRoutingModule,
     BrowserModule,
