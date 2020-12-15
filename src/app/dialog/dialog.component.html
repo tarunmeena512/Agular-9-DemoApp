@@ -1,7 +1,8 @@
 <h2 mat-dialog-title>Add</h2>
 <mat-dialog-content class="mat-typography">
-    <form [formGroup]="myform" (ngSubmit)="onSubmit(myform.value)" >
+    <form [formGroup]="myform">
         <div class="row">
+            <!-- for email -->
             <mat-form-field class="example-full-width col-12">
                 <mat-label>Email</mat-label>
                 <input matInput formControlName="email" placeholder="Ex. pat@example.com">
@@ -13,5 +14,5 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!myform.valid">Submit Form</button>
+    <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!myform.valid" (click) = "onSubmit(myform.value)">Submit Form</button>
 </mat-dialog-actions>

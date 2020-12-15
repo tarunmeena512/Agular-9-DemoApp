@@ -25,15 +25,8 @@ export class DialogComponent implements OnInit {
       email: ['', [Validators.required,Validators.pattern(emailregex)],this.checkInUseEmail]
     })
   }
-  // convenience getter for easy access to form fields
-  get f() { return this.myform.controls; }
-  onSubmit(event) {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.myform.invalid) {
-      return;
-    }
+  onSubmit(values) {
+    console.log(values);
   }
   getErrorEmail() {
     return this.myform.get('email').hasError('required') ? 'Field is required' :
