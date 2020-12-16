@@ -8,7 +8,9 @@
             </a>
           </ng-container>
           <ng-container *ngIf="menuItem.children.length > 0">
-            <button mat-button [matMenuTriggerFor]="levelOne" #levelOneTrigger="matMenuTrigger" (mouseenter)="levelOneTrigger.openMenu()" >
+            <button mat-button [matMenuTriggerFor]="levelOne" #levelOneTrigger="matMenuTrigger"
+            (mouseenter)="levelOneTrigger.openMenu()"
+            >
               <span class="icon fa" [ngClass]="menuItem.icon"></span>
               <span>{{menuItem.label}}
                 <i class="fa fa-chevron-down"></i>
@@ -16,8 +18,9 @@
             </button>
         
             <mat-menu #levelOne="matMenu" direction="down" yPosition="below">
-              <span>
               <ng-container *ngFor="let childL1 of menuItem.children">
+                <span>
+                <!-- <span (mouseleave)="levelOneTrigger.closeMenu()"> -->
                 <li class="p-0" *ngIf="!childL1.children" mat-menu-item>
                   <a class="nav-link">{{childL1.label}}
                     <i *ngIf="childL1.icon" [ngClass]="childL1.icon"></i>
@@ -28,7 +31,6 @@
                     <span class="icon fa" [ngClass]="childL1.icon"></span>
                     <span>{{childL1.label}}</span>
                   </li>
-        
                   <mat-menu #levelTwo="matMenu">
                     <ng-container *ngFor="let childL2 of childL1.children">
                       <li class="p-0" mat-menu-item>
@@ -39,8 +41,9 @@
                     </ng-container>
                   </mat-menu>
                 </ng-container>
-              </ng-container>
               </span>
+              </ng-container>
+          
             </mat-menu>
           </ng-container>
         </ng-container>

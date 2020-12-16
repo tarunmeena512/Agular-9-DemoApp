@@ -13,5 +13,4 @@ export class NestedComponent{
   constructor() {
     this.modulesList = ModulesList;
   }
-
 }
