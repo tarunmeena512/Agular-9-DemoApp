@@ -17,13 +17,15 @@ import { MatSortModule } from '@angular/material/sort';
 import { DemoMaterialModule } from './material-module';
 import { DialogComponent } from './dialog/dialog.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { NestedComponent } from './nested/nested.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     TableComponent,
-    DialogComponent
+    DialogComponent,
+    NestedComponent
   ],
   entryComponents:[DialogComponent],
   imports: [
