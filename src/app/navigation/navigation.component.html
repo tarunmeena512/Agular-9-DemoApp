@@ -12,23 +12,17 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-       >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span class="titleCenter">Demo Application</span>
-      <span class="example-spacer"></span>
-      <span>Admin User</span>
-      <button
-      type="button"
-      mat-icon-button
-     >
-      <mat-icon aria-label="Side nav toggle icon">account_circle</mat-icon>
-    </button>
+      <mat-toolbar-row>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span class="titleCenter">Demo Application</span>
+        <span class="example-spacer"></span>
+        <span>Admin User</span>
+        <button type="button" mat-icon-button>
+          <mat-icon aria-label="Side nav toggle icon">account_circle</mat-icon>
+        </button>
+      </mat-toolbar-row>
     </mat-toolbar>
     <!-- Add Content Here -->
     <div class="container-fluid">
@@ -113,8 +107,8 @@
             </mat-expansion-panel>
           </mat-accordion>
         </div>
-        <div  class="col-12 footer">
-             Footer Works
+        <div  class="col-12 titleCenter1" style="padding-right:100px">
+            <span>Demo Application</span>
         </div>
       </div>
     </div>
