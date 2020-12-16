@@ -18,3 +18,12 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+.titleCenter{
+  flex: 1 1 auto;
+  text-align: right;
+}
+.footer{
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+}
