@@ -19,9 +19,33 @@
         <span class="titleCenter">Demo Application</span>
         <span class="example-spacer"></span>
         <span>Admin User</span>
-        <button type="button" mat-icon-button>
+        <button type="button" mat-icon-button [matMenuTriggerFor]="menu"
+        (mouseenter)="levelOneTrigger.openMenu()" 
+        #levelOneTrigger="matMenuTrigger">
           <mat-icon aria-label="Side nav toggle icon">account_circle</mat-icon>
         </button>
+        <mat-menu #menu="matMenu" overlapTrigger="false">
+          <span (mouseleave)="levelOneTrigger.closeMenu()">
+            <div class="container">
+              <div class="row">
+                <div class="col-12" style="text-align: center;">
+                  <button type="button" mat-icon-button>
+                    <mat-icon color="primary" aria-label="Side nav toggle icon">account_circle</mat-icon>
+                  </button>
+                </div>
+                <div class="col-12" style="text-align: center;">
+                  <span>Admin User</span>
+                  <mat-divider></mat-divider>
+                </div>
+                <div class="col-12">
+                  <button type="button" color='warn' mat-icon-button>
+                    <mat-icon aria-label="Side nav toggle icon">exit_to_app</mat-icon> Log Out
+                  </button>
+                </div>
+              </div>
+            </div>
+          </span>
+        </mat-menu>
       </mat-toolbar-row>
     </mat-toolbar>
     <!-- Add Content Here -->
