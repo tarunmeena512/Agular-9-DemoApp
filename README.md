@@ -1,4 +1,5 @@
 # MyNewA
+    box-shadow: 0 1px 4px rgba(0,0,0,.058823529411764705);
 box-shadow: 0 1px 4px rgba(0,0,0,.058823529411764705);
 pp
 https://xd.adobe.com/view/951a26d8-767b-48fa-a60b-d10e1e07b3a7-c049/screen/eccc5ec8-f976-43af-98ee-6736209f7e81/specs/
