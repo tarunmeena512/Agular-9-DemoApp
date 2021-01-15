@@ -1,3 +1,18 @@
+.badge{
+    display: inline-block;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+        padding: .7em 1.2em .5em;
+    border-radius: 10rem;
+    margin-right: 9px;
+    font-size: 12px;
+    }
+
+
+
 # MyNewA
     box-shadow: 0 1px 4px rgba(0,0,0,.058823529411764705);
 box-shadow: 0 1px 4px rgba(0,0,0,.058823529411764705);
