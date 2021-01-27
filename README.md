@@ -1,3 +1,12 @@
+
+Thanks for your help and support.
+
+Finally i've decided to move on and will be joining some company at indore location only.
+
+I will be happy to assist with training a replacement and do anything else you might need to ensure a seamless transition during my 90 days NP.
+
+If possible request you to assign some short term work in some other project. 
+
 https://github.com/vmanchev/optima-schedule/tree/master/projects/optima-schedule-material
 .badge{
     display: inline-block;
